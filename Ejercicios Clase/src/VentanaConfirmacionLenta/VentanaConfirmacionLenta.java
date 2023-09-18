@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  * Observa que hasta que ocurre esta confirmación la ventana no responde.
  * 1. Arréglalo para que la ventana no se quede "frita" hasta que se acabe de confirmar.
  * 2. Haz que el botón de "confirmar" no se pueda pulsar dos veces mientras el proceso
- * de confirmación se esté realizando
+ * de confirmación se esté 3333
  * @author andoni.eguiluz @ ingenieria.deusto.es
  */
 public class VentanaConfirmacionLenta {
@@ -49,17 +49,7 @@ public class VentanaConfirmacionLenta {
 					@Override
 					public void run() {
 						procesoConfirmar();
-						
-						SwingUtilities.invokeLater(new Runnable() {
-							
-			
-							
-							@Override
-							public void run() {
-								boton.setEnabled(true);
-								
-							}
-						});
+						boton.setEnabled(true);
 						
 					}
 				});
