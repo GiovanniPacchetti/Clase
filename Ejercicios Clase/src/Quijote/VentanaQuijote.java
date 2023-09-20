@@ -49,9 +49,36 @@ public class VentanaQuijote extends JFrame {
 	
 	private void muevePagina( int pixelsVertical ) {
 		// TODO Cambiar este comportamiento de acuerdo a los comentarios de la cabecera de clase
-		JScrollBar bVertical = spTexto.getVerticalScrollBar();
-		System.out.println( "Moviendo texto de " + bVertical.getValue() + " a " + (bVertical.getValue()+pixelsVertical) );
-		bVertical.setValue( bVertical.getValue() + pixelsVertical );
+		Thread hiloso = new Thread( new Runnable() {
+			
+			@Override
+			public void run() {
+				JScrollBar bVertical = spTexto.getVerticalScrollBar();
+				System.out.println( "Moviendo texto de " + bVertical.getValue() + " a " + (bVertical.getValue()+pixelsVertical) );
+				
+				int pasoporVuelta;
+
+				if (pixelsVertical > 0) {
+				    pasoporVuelta = 4;
+				} else {
+				    pasoporVuelta = -4;
+				}
+				
+				for (int i = 0; i<Math.abs(pixelsVertical);) {
+					i+=4;
+					bVertical.setValue( bVertical.getValue() + pasoporVuelta );
+					try {
+						Thread.sleep(15);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+				
+			}
+		});
+		hiloso.start();
+	
+		
 	}
 	
 	private void cargaQuijote() {
