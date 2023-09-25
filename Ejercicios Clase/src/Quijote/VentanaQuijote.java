@@ -46,7 +46,7 @@ public class VentanaQuijote extends JFrame {
 			}
 		});
 	}
-	
+	  
 	private void muevePagina( int pixelsVertical ) {
 		// TODO Cambiar este comportamiento de acuerdo a los comentarios de la cabecera de clase
 		Thread hiloso = new Thread( new Runnable() {
@@ -80,7 +80,7 @@ public class VentanaQuijote extends JFrame {
 	
 		
 	}
-	
+	 
 	private void cargaQuijote() {
 		try {
 			Scanner scanner = new Scanner( VentanaQuijote.class.getResourceAsStream( "DonQuijote.txt" ), "UTF-8" );
